@@ -4,37 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 
-// ✅ Safe transition setup (no deprecated props)
-const containerVariants = {
-  hidden: { opacity: 0, y: 100 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: 'easeOut',
-    },
-  },
-  exit: {
-    opacity: 0,
-    y: 100,
-    transition: {
-      duration: 0.25,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.3,
-    },
-  },
-};
-
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
 
@@ -43,12 +12,12 @@ export default function MobileMenu() {
     { href: '/about', label: 'About' },
     { href: '/projects', label: 'Projects' },
     { href: '/contact', label: 'Contact' },
-    
+    { href: '/blog', label: 'Blog' },
   ];
 
   return (
     <>
-      {/* ✅ Bottom Floating Toggle Button */}
+      {/* ✅ Floating Toggle Button */}
       <button
         onClick={() => setOpen(!open)}
         className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-red-600 p-4 rounded-full shadow-lg text-white sm:hidden"
@@ -57,24 +26,24 @@ export default function MobileMenu() {
         {open ? <FaTimes size={20} /> : <FaBars size={20} />}
       </button>
 
-      {/* ✅ AnimatePresence for smooth enter/exit */}
+      {/* ✅ Animated Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.nav
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
             className="fixed bottom-0 left-0 right-0 bg-white rounded-t-xl shadow-2xl p-6 z-40"
           >
             <ul className="grid grid-cols-2 gap-6 text-center">
               {links.map(({ href, label }) => (
                 <motion.li
                   key={href}
-                  variants={itemVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.25 }}
                 >
                   <Link
                     href={href}
