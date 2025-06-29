@@ -4,25 +4,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 
+// ✅ Safe transition setup (no deprecated props)
 const containerVariants = {
   hidden: { opacity: 0, y: 100 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { 
-      type: 'spring', 
-      stiffness: 300, 
-      damping: 30,
-      when: 'beforeChildren',
-      staggerChildren: 0.1
-    }
+    transition: {
+      duration: 0.4,
+      ease: 'easeOut',
+    },
   },
-  exit: { opacity: 0, y: 100, transition: { duration: 0.25 } },
+  exit: {
+    opacity: 0,
+    y: 100,
+    transition: {
+      duration: 0.25,
+    },
+  },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
 };
 
 export default function MobileMenu() {
@@ -33,20 +43,21 @@ export default function MobileMenu() {
     { href: '/about', label: 'About' },
     { href: '/projects', label: 'Projects' },
     { href: '/contact', label: 'Contact' },
-    { href: '/blog', label: 'Blog' },
+    
   ];
 
   return (
     <>
-      {/* Bottom center toggle button */}
+      {/* ✅ Bottom Floating Toggle Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-red-600 p-4 rounded-full shadow-lg text-white sm:hidden"
-        aria-label="Toggle menu"
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-red-600 p-4 rounded-full shadow-lg text-white sm:hidden"
+        aria-label="Toggle Menu"
       >
-        {open ? <FaTimes size={24} /> : <FaBars size={24} />}
+        {open ? <FaTimes size={20} /> : <FaBars size={20} />}
       </button>
 
+      {/* ✅ AnimatePresence for smooth enter/exit */}
       <AnimatePresence>
         {open && (
           <motion.nav
@@ -55,14 +66,15 @@ export default function MobileMenu() {
             animate="visible"
             exit="exit"
             className="fixed bottom-0 left-0 right-0 bg-white rounded-t-xl shadow-2xl p-6 z-40"
-            style={{ borderTopLeftRadius: '1rem', borderTopRightRadius: '1rem' }}
           >
             <ul className="grid grid-cols-2 gap-6 text-center">
               {links.map(({ href, label }) => (
                 <motion.li
                   key={href}
                   variants={itemVariants}
-                  className=""
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
                 >
                   <Link
                     href={href}

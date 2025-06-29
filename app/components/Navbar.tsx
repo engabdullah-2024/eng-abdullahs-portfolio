@@ -12,9 +12,7 @@ export default function Navbar() {
       <Link href="/projects" className="font-medium text-gray-700 hover:text-red-700 transition">
         Projects
       </Link>
-      <Link href="/blog" className="font-medium text-gray-700 hover:text-red-700 transition">
-        Blog
-      </Link>
+     
       <Link href="/contact" className="font-medium text-gray-700 hover:text-red-700 transition">
         Contact
       </Link>
