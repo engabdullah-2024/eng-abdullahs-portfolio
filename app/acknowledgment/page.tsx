@@ -70,7 +70,7 @@ export default function AcknowledgmentPage() {
         </p>
       </div>
 
-      {/* 👩 Sister - Zamzam */}
+      {/* 👩 Sister - Third */}
       <div className={cardStyle}>
         <div className={imageBox}>
           <Image
@@ -87,7 +87,7 @@ export default function AcknowledgmentPage() {
           <FaTrophy className="text-yellow-400" size={26} title="Support Trophy" />
         </div>
         <p className="text-center text-lg font-semibold text-gray-700">
-          Criminology & Security Study Bach
+          Criminology & Security Study Bach · Best Sister in the World
         </p>
         <p className="text-gray-800 text-base leading-relaxed px-2">
           My sister stood by me and funded my journey. She believed in me and gave me her full
