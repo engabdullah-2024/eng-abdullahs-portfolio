@@ -19,25 +19,25 @@ export const socialLinks = [
 
 export const projects = [
   {
-    title: "EduPDF Portal",
-    description: "A portal for Grade 12 students to access and download PDF resources.",
-    stack: ["React", "MongoDB", "Express", "Tailwind CSS"],
-    github: "https://github.com/engabdullah-2024/edupdf",
-    live: "https://edupdf.vercel.app",
+    title: "Find Your Country",
+    description: "A portal for users to find information about countries.",
+    stack: ["HTML", "CSS", "JS"],
+    github: "https://github.com/engabdullah-2024/find_your_country",
+    live: "https://find-so.netlify.app/",
   },
   {
-    title: "Register4Assembly",
-    description: "Full-stack registration system for school events with admin controls.",
-    stack: ["Next.js", "Node.js", "MongoDB", "Tailwind CSS"],
-    github: "https://github.com/engabdullah-2024/register4assembly",
-    live: "https://register4assembly.vercel.app",
+    title: "Quran Clone",
+    description: "A web application for users to read and listen to the Quran.",
+    stack: ["Next.js", "React", "Tailwind CSS"],
+    github: "https://github.com/engabdullah-2024/Quran-Clone",
+    live: "https://quran-clone-mocha.vercel.app/",
   },
   {
-    title: "Taskify App",
-    description: "A sleek task management app with reminders and deadlines.",
-    stack: ["React", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/engabdullah-2024/taskify",
-    live: "https://taskify-app.vercel.app",
+    title: "Soplang",
+    description: "is a Somali Programming Language.",
+    stack: ["Python", "Shell", "Nextjs", "Tailwind CSS"],
+    github: "https://github.com/engabdullah-2024/soplang-",
+    live: "https://www.soplang.org/",
   },
 ];
 export const blogPosts = [
