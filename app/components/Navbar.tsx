@@ -12,6 +12,9 @@ export default function Navbar() {
       <Link href="/projects" className="font-medium text-gray-700 hover:text-red-700 transition">
         Projects
       </Link>
+       <Link href="/acknowledgment" className="font-medium text-gray-700 hover:text-red-700 transition">
+        Acknowledgment
+      </Link>
      
       <Link href="/contact" className="font-medium text-gray-700 hover:text-red-700 transition">
         Contact
